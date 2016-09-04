@@ -29,6 +29,7 @@ class Holde(object):
 		self.treasury = 0
 		##
 		self.name = name
+		self.neighbours = {}
 
 
 
