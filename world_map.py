@@ -77,10 +77,22 @@ class World_Map(object):
 	def distance(self,holde_a, holde_b):
 		pass
 
-	def distance_rec(self, holde_a, holde_b, dist):
-		counter++;
-		if (holde_a.coord_x == holde_b.coord_x and holde_a.coord_y == holde_b.coord_y):
-			return counter
-
-		else if (holde_a.coord_x == holde_b.coord_x and holde_a.coord_x > holde_b.coord_x)
-			return 
+	def distance_rec(self, holde_a, holde_b):
+		if (holde_a == holde_b):
+			return 0
+		else :
+			if (holde_a.coord_x < holde_b.coord_x):
+				if (holde_a.coord_y <= holde_b.coord_y):
+					return 1 + distance_rec(holde_a.neighbours{"SE"},holde_b)
+				else:
+					return 1 + distance_rec(holde_a.neighbours{"NE"},holde_b)
+			if (holde_a.coord_x > holde_b.coord_x):
+				if (holde_a.coord_y <= holde_b.coord_y):
+					return 1 + distance_rec(holde_a.neighbours{"SW"},holde_b)
+				else:
+					return 1 + distance_rec(holde_a.neighbours{"NW"},holde_b)
+			if (holde_a.coord_x == holde_b.coord_x):
+				if (holde_a.coord_y <= holde_b.coord_y):
+					return 1 + distance_rec(holde_a.neighbours{"S"},holde_b)
+				else:
+					return 1 + distance_rec(holde_a.neighbours{"N"},holde_b)
